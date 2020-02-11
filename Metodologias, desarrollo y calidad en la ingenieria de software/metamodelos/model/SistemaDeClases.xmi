@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="">
+  <Sistema>
+    <clases funciones="/1" nombre="Check withdrawal entry"/>
+    <clases funciones="/4 /7 /10 /13 /16 /19" nombre="Update customer passbook"/>
+    <clases funciones="/22" nombre="Pay the customer"/>
+  </Sistema>
+  <Funcion nombre="funcion1" parametro="/2" retorno="/3"/>
+  <Tipo nombre="Wtihdrawal slip"/>
+  <Tipo nombre="Withdrawal details"/>
+  <Funcion nombre="funcion2" parametro="/5" retorno="/6"/>
+  <Tipo nombre="Withdrawal details"/>
+  <Tipo nombre="Cash details"/>
+  <Funcion nombre="funcion3" parametro="/8" retorno="/9"/>
+  <Tipo nombre="Withdrawal details"/>
+  <Tipo nombre="Update account"/>
+  <Funcion nombre="funcion4" parametro="/11" retorno="/12"/>
+  <Tipo nombre="Withdrawal details"/>
+  <Tipo nombre="Account number"/>
+  <Funcion nombre="funcion5" parametro="/14" retorno="/15"/>
+  <Tipo nombre="Cash details"/>
+  <Tipo nombre="Cash details"/>
+  <Funcion nombre="funcion6" parametro="/17" retorno="/18"/>
+  <Tipo nombre="Cash details"/>
+  <Tipo nombre="Update account"/>
+  <Funcion nombre="funcion7" parametro="/20" retorno="/21"/>
+  <Tipo nombre="Cash details"/>
+  <Tipo nombre="Account number"/>
+  <Funcion nombre="funcion8" parametro="/23" retorno="/24"/>
+  <Tipo nombre="Cash details"/>
+  <Tipo nombre="Cash"/>
+</xmi:XMI>

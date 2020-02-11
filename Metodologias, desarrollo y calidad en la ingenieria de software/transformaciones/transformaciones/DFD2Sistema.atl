@@ -1,0 +1,60 @@
+-- @path MO=/metamodelos/model/metamodelos.ecore
+-- @path MD=/metamodelos/model/MMSistemaDeClases.ecore
+
+module DFD2Sistema;
+create OUT : MD from IN : MO;
+helper def: contador: Integer = 1;
+
+rule transformar {
+	from 
+		dfd : MO!DFD
+	to
+		sistema : MD!Sistema (
+			clases <- dfd.Nodos->select(n | n.oclIsTypeOf(MO!Proceso))
+			->iterate(proceso; result: Sequence(MD!Clase) = Sequence {} | result->including( thisModule.getClase(proceso)) )
+		)
+}
+
+lazy rule getClase {
+	from 
+		proceso: MO!Proceso
+	to
+		clase: MD!Clase (
+			nombre <- proceso.nombre,
+			funciones <- proceso.Entrantes->iterate(
+				e;
+				result: Sequence(MD!Funcion)=Sequence{} |
+				result->including( 
+					proceso.Salientes->iterate(
+						s;
+						result: Sequence(MD!Funcion)=Sequence{} |
+						result->including( thisModule.getFuncion( e,s ) )
+					)
+				)
+			)
+		)
+}
+
+lazy rule getFuncion {
+	from
+		entrante: MO!Arco,
+		saliente: MO!Arco
+	to
+		funcion: MD!Funcion(
+			nombre <- 'funcion'+ thisModule.contador,
+			parametro <- thisModule.getTipo(entrante.etiqueta),
+			retorno <- thisModule.getTipo(saliente.etiqueta)
+		)
+	do {
+		thisModule.contador <- thisModule.contador + 1;
+	}
+}
+
+lazy rule getTipo {
+	from
+		etiqueta: String
+	to
+		tipo: MD!Tipo (
+			nombre <- etiqueta
+		)
+}

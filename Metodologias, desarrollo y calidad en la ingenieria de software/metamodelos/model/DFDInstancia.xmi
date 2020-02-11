@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamodelos:DFD xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodelos="http://www.example.org/metamodelos" xsi:schemaLocation="http://www.example.org/metamodelos metamodelos.ecore">
+  <Nodos xsi:type="metamodelos:EntidadExterna" Entrantes="//@Arcos.6" Salientes="//@Arcos.0" nombre="Customer"/>
+  <Nodos xsi:type="metamodelos:Proceso" Entrantes="//@Arcos.0" Salientes="//@Arcos.1" nombre="Check withdrawal entry"/>
+  <Nodos xsi:type="metamodelos:Proceso" Entrantes="//@Arcos.1 //@Arcos.5" Salientes="//@Arcos.5 //@Arcos.2 //@Arcos.3" nombre="Update customer passbook"/>
+  <Nodos xsi:type="metamodelos:AlmacenDeDatos" Entrantes="//@Arcos.2 //@Arcos.3" Salientes="//@Arcos.4" nombre="Customer account"/>
+  <Nodos xsi:type="metamodelos:Proceso" Entrantes="//@Arcos.5" Salientes="//@Arcos.6" nombre="Pay the customer"/>
+  <Arcos Origen="//@Nodos.0" Destino="//@Nodos.1" etiqueta="Wtihdrawal slip"/>
+  <Arcos Origen="//@Nodos.1" Destino="//@Nodos.2" etiqueta="Withdrawal details"/>
+  <Arcos Origen="//@Nodos.2" Destino="//@Nodos.3" etiqueta="Update account"/>
+  <Arcos Origen="//@Nodos.2" Destino="//@Nodos.3" etiqueta="Account number"/>
+  <Arcos Origen="//@Nodos.3" Destino="//@Nodos.2" etiqueta="Account details"/>
+  <Arcos Origen="//@Nodos.2" Destino="//@Nodos.4" etiqueta="Cash details"/>
+  <Arcos Origen="//@Nodos.4" Destino="//@Nodos.0" etiqueta="Cash"/>
+</metamodelos:DFD>

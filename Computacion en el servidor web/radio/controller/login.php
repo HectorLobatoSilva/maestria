@@ -1,11 +1,11 @@
 <?php
-    require_once ( 'user.php' );
+    require_once ( './../model/user.php' );
 
-    $userEmail = $_REQUEST[ 'userName' ];
-    $userPassword = $_REQUEST[ 'userPassword' ];
+    $userEmail = $_POST[ 'userName' ];
+    $userPassword = $_POST[ 'userPassword' ];
 
     $user = new User();
-    $user->setData( $userEmail, $userPassword );
+    $user->init( $userEmail, $userPassword );
     $user->login();
 
     header( "Location: ../index.php" );

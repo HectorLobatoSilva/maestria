@@ -1,8 +1,8 @@
 <?php
-    require_once ( 'user.php' );
+    require_once ( './../model/user.php' );
 
     $user = new User();
-    $user->destroySession();
+    $user->logout();
 
     header( "Location: ../index.php" );
 ?>

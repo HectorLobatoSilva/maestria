@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once ( './../model/station.php' );
     if ( isset($_SESSION['user']) ){
         $id = $_POST['id'];

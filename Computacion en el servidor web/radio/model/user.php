@@ -63,11 +63,8 @@
             $data = "email = '".$this->email."' AND password = '".sha1($this->password)."'";
             $result = $database->query("SELECT * FROM users WHERE $data");
             if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-                    $_SESSION['user'] = array('email'=>$row['email'],'user_name'=>$row['user_name'],'avatar'=>$row['avatar']);
-                }
+                $row = $result->fetch_assoc();
+                $_SESSION['user'] = array('email'=>$row['email'],'user_name'=>$row['user_name'],'avatar'=>$row['avatar']);
             } else {
                 echo "0 results";
             }

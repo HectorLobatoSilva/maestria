@@ -8,23 +8,26 @@
         'tipo' => '',
         'comentario' => ''
     );
-    $id = $_POST['id'];
-    if ( !empty( $id ) ) {
-    
-        require_once('C:/xampp/htdocs//radio/model/station.php');
-        $estacion = new Station();
-        $results = $estacion->show( $id );
+    $id = '';
+    if ( isset( $_POST['id'] ) ){
+        $id = $_POST['id'];
+        if ( !empty( $id ) ) {
         
-        if ( $results->num_rows > 0 ) {
-            $row = $results->fetch_assoc();
-            $valores = array(
-                'nombre' => $row['nombre'],
-                'ciudad_origen' => $row['ciudad_origen'],
-                'frecuencia_am' => $row['frecuencia_am'],
-                'frecuencia_fm' => $row['frecuencia_fm'],
-                'tipo' => $row['tipo'],
-                'comentario' => $row['comentario']
-            );
+            require_once ( './../model/station.php' );
+            $estacion = new Station();
+            $results = $estacion->show( $id );
+            
+            if ( $results->num_rows > 0 ) {
+                $row = $results->fetch_assoc();
+                $valores = array(
+                    'nombre' => $row['nombre'],
+                    'ciudad_origen' => $row['ciudad_origen'],
+                    'frecuencia_am' => $row['frecuencia_am'],
+                    'frecuencia_fm' => $row['frecuencia_fm'],
+                    'tipo' => $row['tipo'],
+                    'comentario' => $row['comentario']
+                );
+            }
         }
     }
 ?>

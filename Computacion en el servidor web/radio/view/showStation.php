@@ -43,7 +43,7 @@
     <?php 
         echo <<< card
             <div class="container">
-            <p>&nsbq;</p>
+            <p>&nbsp;</p>
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">

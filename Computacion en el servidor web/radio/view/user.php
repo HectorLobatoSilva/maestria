@@ -1,4 +1,6 @@
-<?php require_once('C:/xampp/htdocs//radio/model/station.php'); ?>
+<?php
+    require_once ( './model/station.php' );
+?>
 <div class="container-fluid text-center">
     <h1> Wellcome <?php $user_name = $_SESSION[ 'user' ]['user_name']; echo $user_name; ?> </h1>
     <ul class="list-group">

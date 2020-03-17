@@ -40,27 +40,23 @@
 </head>
 <body>
     <?php require_once('navBar.php'); $image = '<img class="card-img" src="data:image/png;base64,'.base64_encode( $row['logo'] ).'"/>';?>
-    <?php 
-        echo <<< card
-            <div class="container">
-            <p>&nbsp;</p>
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            {$image}
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                            <h5 class="card-title">{$row['nombre']} de {$row['ciudad_origen']}</h5>
-                            <p class="card-text"> {$row['frecuencia_am']} am y {$row['frecuencia_fm']} fm </p>
-                            <p class="card-text"><small class="text-muted"> {$row['tipo']} <br/> {$row['comentario']}</small></p>
-                            </div>
-                        </div>
+    <div class="container">
+    <p>&nbsp;</p>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <?php echo $image ?>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title"><?php echo $row['nombre']." de ".$row['ciudad_origen'] ?></h5>
+                    <p class="card-text"> <?php echo $row['frecuencia_am']." am y ".$row['frecuencia_fm'] ?> fm </p>
+                    <p class="card-text"><small class="text-muted"> <?php echo $row['tipo']." <br/> ".$row['comentario'] ?></small></p>
                     </div>
                 </div>
             </div>
-        card;
-    ?>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

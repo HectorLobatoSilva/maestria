@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Ejercicio firebase</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="text-center" >Login</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <label for="login_user">User</label>
+                <input type="text" id="login_user" class="form-control" placeholder="User">
+                <label for="login_password">Password</label>
+                <input type="password" id="login_password" class="form-control" placeholder="Password">
+                <button class="btn btn-primary btn-block mt-2" onclick="login()" >Login</button>
+                <hr/>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <label for="message_input">Put you're message here</label>
+                <div class="input-group">
+                    <input type="text" id="message_input" class="form-control">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" onclick="save_data()" > >> </button>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+        </div>
+
+        <h1 class="text-center" >Real time data</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul id="real_time_data" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+    <script src="index2.js"></script>
+
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>

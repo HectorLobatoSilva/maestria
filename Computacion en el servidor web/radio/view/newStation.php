@@ -9,10 +9,13 @@
         'comentario' => ''
     );
     $id = '';
+    $form = 'registerStation';
+    $boton = 'Registrar';
     if ( isset( $_POST['id'] ) ){
         $id = $_POST['id'];
         if ( !empty( $id ) ) {
-        
+            $form = 'updateStation';
+            $boton = "Actualizar";
             require_once ( './../model/station.php' );
             $estacion = new Station();
             $results = $estacion->show( $id );
@@ -43,28 +46,18 @@
 <body>
     <?php
         require_once('./navBar.php');
-        echo <<< container
+    ?>
             <div class="container-fluid mt-5">
                 <div class="shadow p-3 mb-5 bg-white rounded">
                     <div class="container">
-        container;
-        if ( empty( $id ) ) {
-            echo <<< container
-                            <form action="/radio/controller/registerStation.php" method="post" autocomplete="off" enctype = "multipart/form-data" >
-            container;
-        } else {
-            echo <<< container
-                            <form action="/radio/controller/updateStation.php" method="post" autocomplete="off" enctype = "multipart/form-data" >
-            container;
-        }
-        echo <<< container
+                            <form action= <?php echo "/radio/controller/$form.php" ?> method="post" autocomplete="off" enctype = "multipart/form-data" >
                             <div class="form-group row">
-                                <input type = "text" value = {$id} name = "id" hidden />
+                                <input type = "text" value = <?php echo $id ?> name = "id" hidden />
                             </div>
                             <div class="form-group row">
                                 <label for="registerNombre" class="col-sm-2 col-form-label">Nombre</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="registerNombre" name = "nombre" required value = "{$valores['nombre']}" />
+                                    <input type="text" class="form-control" id="registerNombre" name = "nombre" required value = <?php echo $valores['nombre'] ?> >
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -78,44 +71,34 @@
                             <div class="form-group row">
                                 <label for="registerCiudadOrigen" class="col-sm-2 col-form-label">Ciudad origen</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="registerCiudadOrigen" name = "ciudad_origen" required value = {$valores['ciudad_origen'] } >
+                                    <input type="text" class="form-control" id="registerCiudadOrigen" name = "ciudad_origen" required value = <?php echo $valores['ciudad_origen'] ?> >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="registerFrecuenciaAm" class="col-sm-2 col-form-label">Frecuencia AM</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="registerFrecuenciaAm" name = "frecuencia_am" required value = {$valores['frecuencia_am'] } >
+                                    <input type="text" class="form-control" id="registerFrecuenciaAm" name = "frecuencia_am" required value = <?php echo $valores['frecuencia_am'] ?> >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="registerFrecuenciaFm" class="col-sm-2 col-form-label">Frecuencia FM</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="registerFrecuenciaFm" name = "frecuencia_fm" required value = {$valores['frecuencia_fm'] } >
+                                    <input type="text" class="form-control" id="registerFrecuenciaFm" name = "frecuencia_fm" required value = <?php echo $valores['frecuencia_fm'] ?> >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="registerTipo" class="col-sm-2 col-form-label">Tipo</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="registerTipo" name = "tipo" required value = {$valores['tipo'] } >
+                                    <input type="text" class="form-control" id="registerTipo" name = "tipo" required value = <?php echo $valores['tipo'] ?> >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="registerComentario" class="col-sm-2 col-form-label">Comentario</label>
                                 <div class="col-sm-10">
-                                    <Textarea row = "3" class="form-control" id="registerComentario" name = "comentario" required > {$valores['comentario']} </Textarea>
+                                    <Textarea row = "3" class="form-control" id="registerComentario" name = "comentario" required > <?php echo $valores['comentario'] ?></Textarea>
                                 </div>
                             </div>
-            container;
-            if ( empty( $id ) ) {
-                echo <<< container
-                                <button type="submit" class = "btn btn-primary btn-block" >Registrar Estación</button>
-                container;
-            } else {
-                echo <<< container
-                                <button type="submit" class = "btn btn-primary btn-block" >Actualizar Estación</button>
-                container;
-            }
-            echo <<< container
+                                <button type="submit" class = "btn btn-primary btn-block" > <?php echo "$boton Estacion" ?> </button>
                         </form>
                     </div>
                 </div>
